@@ -1,0 +1,5 @@
+To split the elements of a list in Python:
+
+Use a list comprehension to iterate over the list.
+On each iteration, call the split() method to split each string.
+Return the part of each string you want to keep.

@@ -1,0 +1,48 @@
+{%include 'db_user.html'%}
+<div class="container" style="margin:0 auto;padding-top:50px;padding-bottom:50px;background:#DDD;">
+<div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+    <div class="card">
+        <h5 class="card-header">Download Decrypted File</h5>
+		
+		<div style="float:right;"><a  target="_blank" href="{% url 'view_keys' pk=pk%}" class="btn btn-info">View Public Key</a></div>
+		<div style="clear:both;"></div>
+        <div class="card-body">
+           
+            <form  id="basicform" method="post" enctype="multipart/form-data">{% csrf_token %}
+               
+				
+				<div class="form-group">
+                    <label for="inputUserName">Enter Private Key</label>
+                    <input id="inputUserName" type="text" autocomplete="off" name="prkey" required="required"  class="form-control">
+                </div>
+                <div class="form-group">
+                    <label for="inputUserName">Enter Public Key</label>
+                    <input id="inputUserName" type="text" autocomplete="off" name="pkey" required="required"  class="form-control">
+                </div>
+				
+                <div class="row">
+                    <div class="col-sm-6 pl-0">
+                    </div>
+                    <div class="col-sm-6 pl-0">
+                        <p class="text-right">
+                            <button type="submit" class="btn btn-space btn-primary">Download Decrypted File</button>
+                            <button type="reset" class="btn btn-space btn-secondary">Cancel</button>
+                        </p>
+                    </div>
+                </div>
+			
+            </form>
+        </div>
+		 
+    </div><br><br>
+	{% if messages %}
+                {% for i in messages %}
+                    <div class="alert alert-success">{{i}}</div>
+                {% endfor %}
+            {% endif %}
+			  {% for i in b %}
+					<center><a href="/media/dec_{{i.file_id.file}}" style="font-size:30px;" class="btn btn-primary" target="_blank">Download File</a>
+			  </center>
+			  {% endfor %}
+</div>
+</div>

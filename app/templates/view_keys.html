@@ -1,0 +1,19 @@
+{%include 'db_user.html'%}
+<div class="container" style="margin:0 auto;padding-top:50px;background:#DDD;">
+<div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+    <div class="card">
+	<style>li { font-weight:bold; } </style>
+        <h5 class="card-header">View Keys</h5>
+		<ul class="list-group">
+		{% for i in b %}
+		
+		    <li class="list-group-item">Check your mail for private key </li> <br>
+		      <li class="list-group-item">Public Key: {{i.public_key}} </li><br>
+			  {% endfor %}
+		</ul>
+		
+       
+		 
+    </div>
+</div>
+</div>
